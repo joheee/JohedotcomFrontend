@@ -1,7 +1,7 @@
 import Index from '../../styles/Profile.module.scss'
 import Image from 'next/image'
 
-export const Profile=()=>{
+export default function Profile(){
     return  <div className={Index.homeContainer}>
             
                 <div className={Index.homeInnerContainer}>

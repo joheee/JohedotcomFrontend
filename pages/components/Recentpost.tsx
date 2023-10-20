@@ -1,7 +1,7 @@
 import Recent from '../../styles/Recentpost.module.scss'
-import { RecentPostCard } from './RecentPostCard'
+import RecentPostCard from './RecentPostCard'
 
-export const Recentpost=()=>{
+export default function Recentpost(){
     return  <div className={Recent.recentPostContainer}>
                 <div className="">
                     <div className={Recent.recentPostTitle}>

@@ -1,11 +1,12 @@
 import Head from 'next/head'
-import { FeaturedWork } from './components/FeaturedWork'
-import { Footer } from './components/Footer'
-import { Navbar } from './components/Navbar'
-import { Profile } from './components/Profile'
-import { Recentpost } from './components/Recentpost'
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
+import FeaturedWork from './components/FeaturedWork'
+import Profile from './components/Profile'
+import Recentpost from './components/Recentpost'
 
 export default function Home() {
+  
   return (
     <div>
       <Head>
@@ -15,11 +16,9 @@ export default function Home() {
       </Head>
 
       <Navbar/>
-
       <Profile/>
       <Recentpost/>
       <FeaturedWork title={`Featured Works`}/>
-      
       <Footer/>
     </div>
   )
