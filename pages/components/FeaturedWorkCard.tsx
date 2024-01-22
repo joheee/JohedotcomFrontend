@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import FeatureCard from '../../styles/FeaturedWorkCard.module.scss'
 
-export const FeaturedWorkCard=()=>{
+export default function FeaturedWorkCard(){
     return  <div className={FeatureCard.featuredWorkCard}>
                 <Image src='/web dev.webp' width='250' height='180' alt=''/>
 

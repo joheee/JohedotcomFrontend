@@ -1,15 +1,13 @@
 import Head from 'next/head'
-import { FeaturedWork } from './components/FeaturedWork'
-import { Footer } from './components/Footer'
-import { Navbar } from './components/Navbar'
 import { Profile } from './components/Profile'
-import { Recentpost } from './components/Recentpost'
 import { doc, getDoc } from 'firebase/firestore/lite'
 import { db, storage } from './config/firebase'
 import { homeInterface, profileInterface } from './config/interface'
 import { getDownloadURL, ref } from 'firebase/storage'
-
-
+import Navbar from './components/Navbar'
+import Recentpost from './components/Recentpost'
+import FeaturedWork from './components/FeaturedWork'
+import Footer from './components/Footer'
 
 export default function Home(prop:homeInterface) {
 
@@ -41,6 +39,7 @@ export async function getServerSideProps() {
   const imageRef = ref(storage, `profile/${profileData.picture}`)
   profileData.picture = await getDownloadURL(imageRef)
   
+  console.log(profileData.picture)
   return {props:{
     profile:profileData
   }}

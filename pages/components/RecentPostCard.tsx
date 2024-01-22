@@ -1,6 +1,6 @@
 import Recentpost from '../../styles/Recentpostcard.module.scss'
 
-export const RecentPostCard=()=>{
+export default function RecentPostCard(){
     return  <div className={Recentpost.recentPostCardContainer}>
                 <div className={Recentpost.recentPostCardTitle}>
                     this is title sadfas dfsad 

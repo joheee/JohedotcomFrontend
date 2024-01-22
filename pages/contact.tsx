@@ -1,14 +1,17 @@
-import {Navbar} from './components/Navbar'
-import {Footer} from './components/Footer'
 import contactPage from '../styles/ContactPage.module.scss'
-import { Variable } from './config/Variable'
 import Head from 'next/head'
+import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 
 export default function Contact (){
+    const APP_NAME = 'johedotcom'
+    const CONTACT_ME_PAGE = 'contact me'
+    const MY_BLOG_PAGE = 'my blog'
+    const MY_WORK_PAGE = 'my work'
     return (
         <>
         <Head>
-            <title>{Variable.APP_NAME} | {Variable.CONTACT_ME_PAGE}</title>
+            <title>{APP_NAME} | {CONTACT_ME_PAGE}</title>
         </Head>
 
         <Navbar/>
