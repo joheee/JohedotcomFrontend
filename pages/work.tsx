@@ -3,8 +3,11 @@ import Head from "next/head";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import FeaturedWork from './components/FeaturedWork';
+import { collection, getDocs, query } from 'firebase/firestore/lite';
+import { db } from './config/firebase';
+import { footerInterface, workInterface } from './config/interface';
 
-export default function Work(){
+export default function Work(prop:workInterface){
     const APP_NAME = 'johedotcom'
     const CONTACT_ME_PAGE = 'contact me'
     const MY_BLOG_PAGE = 'my blog'
@@ -20,7 +23,24 @@ export default function Work(){
             <div className={workPage.navbarHeight}></div>
             
             <FeaturedWork title={`My Work`}/>
-            <Footer/>
+            <Footer footers={prop.footer}/>
         </div>
     )
 } 
+
+export async function getServerSideProps() {
+    // PART OF FOOTER
+    const docFooterCol = query(collection(db, 'footer'))
+    let footerSnapshot = await getDocs(docFooterCol)
+    let footerData:footerInterface[] = []
+    footerSnapshot.forEach(snap => {
+        footerData.push({
+        media:snap.id,
+        username:snap.data().username
+        })
+    })
+
+    return {props:{
+        footer:footerData
+    }}
+}

@@ -22,3 +22,7 @@ export interface blogInterface {
 export interface contactInterface {
   footer:footerInterface[]
 }
+
+export interface workInterface {
+  footer:footerInterface[]
+}
