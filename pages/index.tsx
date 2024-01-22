@@ -4,8 +4,17 @@ import { Footer } from './components/Footer'
 import { Navbar } from './components/Navbar'
 import { Profile } from './components/Profile'
 import { Recentpost } from './components/Recentpost'
+import { doc, getDoc } from 'firebase/firestore/lite'
+import { db, storage } from './config/firebase'
+import { homeInterface, profileInterface } from './config/interface'
+import { getDownloadURL, ref } from 'firebase/storage'
 
-export default function Home() {
+
+
+export default function Home(prop:homeInterface) {
+
+  console.log(prop)
+
   return (
     <div>
       <Head>
@@ -16,11 +25,23 @@ export default function Home() {
 
       <Navbar/>
 
-      <Profile/>
+      <Profile {...prop.profile}/>
       <Recentpost/>
       <FeaturedWork title={`Featured Works`}/>
       
       <Footer/>
     </div>
   )
+}
+
+export async function getServerSideProps() {
+  const docRef = doc(db, 'profile', 'johe')
+  const profileData = (await getDoc(docRef)).data() as profileInterface
+  
+  const imageRef = ref(storage, `profile/${profileData.picture}`)
+  profileData.picture = await getDownloadURL(imageRef)
+  
+  return {props:{
+    profile:profileData
+  }}
 }
