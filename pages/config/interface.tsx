@@ -5,6 +5,12 @@ export interface profileInterface {
   description:string
 }
 
+export interface footerInterface {
+  media:string
+  username:string,
+}
+
 export interface homeInterface {
-  profile:profileInterface
+  profile:profileInterface,
+  footer:footerInterface[]
 }
