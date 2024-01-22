@@ -4,7 +4,7 @@ import Footer from './components/Footer'
 import Navbar from './components/Navbar'
 import RecentPostCard from './components/RecentPostCard'
 import { collection, getDocs, query } from 'firebase/firestore/lite'
-import firebase from './config/firebase'
+import { db } from './config/firebase'
 import { blogInterface, footerInterface } from './config/interface'
 
 export default function Blog(prop:blogInterface) {
@@ -38,8 +38,6 @@ export default function Blog(prop:blogInterface) {
 }
 
 export async function getServerSideProps() {
-    const { db, storage } = firebase;
-
     // PART OF FOOTER
     const docFooterCol = query(collection(db, 'footer'))
     let footerSnapshot = await getDocs(docFooterCol)

@@ -10,7 +10,7 @@ export interface footerInterface {
   username:string,
 }
 
-export default interface homeInterface {
+export interface homeInterface {
   profile:profileInterface,
   footer:footerInterface[]
 }
@@ -25,4 +25,10 @@ export interface contactInterface {
 
 export interface workInterface {
   footer:footerInterface[]
+}
+
+export default function InterfaceView() {
+  return (
+    <div className=""></div>
+  )
 }

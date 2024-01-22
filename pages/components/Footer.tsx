@@ -9,6 +9,8 @@ interface footerViewInterface {
 }
 export default function Footer({footers}:footerViewInterface){
 
+    if(footers === undefined) return <div className=""></div>
+
     return  <div className={footer.footerContainer}>
                 <div className={footer.footerComponentContainer}>
                     {

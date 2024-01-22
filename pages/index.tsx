@@ -1,16 +1,15 @@
 import Head from 'next/head'
 import { collection, doc, getDoc, getDocs, query } from 'firebase/firestore/lite'
-import firebase from './config/firebase'
-import homeInterface, { footerInterface, profileInterface } from './config/interface'
+import { footerInterface, homeInterface, profileInterface } from './config/interface'
 import { getDownloadURL, ref } from 'firebase/storage'
 import Navbar from './components/Navbar'
 import Recentpost from './components/Recentpost'
 import FeaturedWork from './components/FeaturedWork'
 import Footer from './components/Footer'
 import Profile from './components/Profile'
+import { db, storage } from './config/firebase'
 
 export default function Home(prop:homeInterface) {
-
 
   return (
     <div>
@@ -32,7 +31,6 @@ export default function Home(prop:homeInterface) {
 }
 
 export async function getServerSideProps() {
-  const { db, storage } = firebase;
   
   // PART OF PROFILE 
   const dofProfileRef = doc(db, 'profile', 'johe')

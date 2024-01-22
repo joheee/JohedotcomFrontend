@@ -4,8 +4,8 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import FeaturedWork from './components/FeaturedWork';
 import { collection, getDocs, query } from 'firebase/firestore/lite';
-import firebase from './config/firebase';
 import { footerInterface, workInterface } from './config/interface';
+import { db } from './config/firebase';
 
 export default function Work(prop:workInterface){
     const APP_NAME = 'johedotcom'
@@ -29,8 +29,6 @@ export default function Work(prop:workInterface){
 } 
 
 export async function getServerSideProps() {
-    const { db, storage } = firebase;
-    
     // PART OF FOOTER
     const docFooterCol = query(collection(db, 'footer'))
     let footerSnapshot = await getDocs(docFooterCol)

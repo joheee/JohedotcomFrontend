@@ -12,7 +12,11 @@ const firebaseConfig = {
 }
 
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-const storage = getStorage(app);
+export const db = getFirestore(app);
+export const storage = getStorage(app)
 
-export default { db, storage };
+export default function FirebaseView() {
+  return(
+    <div className=""></div>
+  )
+}
