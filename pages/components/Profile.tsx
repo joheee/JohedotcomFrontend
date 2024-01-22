@@ -2,7 +2,7 @@ import Index from '../../styles/Profile.module.scss'
 import Image from 'next/image'
 import { profileInterface } from '../config/interface'
 
-export const Profile=(prop:profileInterface)=>{
+export default function Profile(prop:profileInterface){
     return  <div className={Index.homeContainer}>
             
                 <div className={Index.homeInnerContainer}>

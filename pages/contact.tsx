@@ -3,7 +3,7 @@ import Head from 'next/head'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import { collection, getDocs, query } from 'firebase/firestore/lite'
-import { db } from './config/firebase'
+import firebase from './config/firebase'
 import { contactInterface, footerInterface } from './config/interface'
 
 export default function Contact(prop:contactInterface){
@@ -62,6 +62,8 @@ export default function Contact(prop:contactInterface){
 }
 
 export async function getServerSideProps() {
+    const { db, storage } = firebase;
+
     // PART OF FOOTER
     const docFooterCol = query(collection(db, 'footer'))
     let footerSnapshot = await getDocs(docFooterCol)

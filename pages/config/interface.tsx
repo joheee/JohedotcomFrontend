@@ -10,7 +10,7 @@ export interface footerInterface {
   username:string,
 }
 
-export interface homeInterface {
+export default interface homeInterface {
   profile:profileInterface,
   footer:footerInterface[]
 }
