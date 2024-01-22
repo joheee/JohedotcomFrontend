@@ -14,3 +14,11 @@ export interface homeInterface {
   profile:profileInterface,
   footer:footerInterface[]
 }
+
+export interface blogInterface {
+  footer:footerInterface[]
+}
+
+export interface contactInterface {
+  footer:footerInterface[]
+}

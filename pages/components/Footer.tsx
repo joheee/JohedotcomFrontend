@@ -31,8 +31,12 @@ export default function Footer({footers}:footerViewInterface){
                         })
                     }
                 </div>
-                <div className={footer.footerCopyrightText}>
-                    Copyright ©2023 by Johevin Blesstowi 
-                </div>
+                {
+                    footers.map(item => {
+                        if(item.media === 'title') return (
+                            <div className={footer.footerCopyrightText}>{item.username}</div>
+                        )
+                    })
+                }
             </div>
 }
