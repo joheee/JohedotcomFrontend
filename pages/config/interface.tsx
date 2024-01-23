@@ -20,17 +20,26 @@ export interface workInterface {
   time:string
 }
 
-export interface homeInterface {
+export interface blogInterface {
+  id:string,
+  title:string,
+  description:string,
+  time:string
+}
+
+export interface homeViewInterface {
   profile:profileInterface,
   footer:footerInterface[],
-  work:workInterface[]
+  work:workInterface[],
+  blog:blogInterface[]
 }
 
-export interface blogInterface {
-  footer:footerInterface[]
+export interface blogViewInterface {
+  footer?:footerInterface[]
+  blog:blogInterface[]
 }
 
-export interface contactInterface {
+export interface contactViewInterface {
   footer:footerInterface[]
 }
 

@@ -3,13 +3,14 @@ import Navbar from './components/Navbar'
 import Recentpost from './components/Recentpost'
 import FeaturedWork from './components/FeaturedWork'
 import Profile from './components/Profile'
-import { homeInterface } from './config/interface'
 import Footer from './components/Footer'
 import { ProfileController } from './controller/profile'
 import { FooterController } from './controller/footer'
 import { WorkController } from './controller/work'
+import { BlogController } from './controller/blog'
+import { homeViewInterface } from './config/interface'
 
-export default function Home(prop:homeInterface) {
+export default function Home(prop:homeViewInterface) {
 
   return (
     <div>
@@ -22,7 +23,7 @@ export default function Home(prop:homeInterface) {
       <Navbar/>
 
       <Profile {...prop.profile}/>
-      <Recentpost/>
+      <Recentpost blog={prop.blog}/>
       <FeaturedWork work={prop.work} title={`Featured Works`}/>
       
       <Footer footers={prop.footer}/>
@@ -35,10 +36,12 @@ export async function getServerSideProps() {
   const profileData = await ProfileController.GetProfile()
   const footerData = await FooterController.GetFooter()
   const workData = await WorkController.GetWorkByDate()
+  const blogData = await BlogController.GetBlogByDate()
 
   return {props:{
     profile:profileData,
     footer:footerData,
-    work:workData
+    work:workData,
+    blog:blogData
   }}
 }

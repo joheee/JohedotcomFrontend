@@ -5,11 +5,11 @@ import { getDownloadURL, ref } from "firebase/storage"
 
 export class WorkController {
     
-    static async GetWorkByDate() {
+    static async GetWorkByDate(){
         const docWorkCol = query(collection(db, 'work'))
         const workSnapshot = await getDocs(docWorkCol)
     
-        const workData = [];
+        const workData:workInterface[] = [];
     
         for (const snap of workSnapshot.docs) {
             const imageRef = ref(storage, `work/${snap.data().picture}`);
@@ -32,4 +32,4 @@ export class WorkController {
 
 export default function Page() {
     return <div className=""></div>
-  }
+}

@@ -2,10 +2,10 @@ import contactPage from '../styles/ContactPage.module.scss'
 import Head from 'next/head'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
-import { contactInterface } from './config/interface'
+import { contactViewInterface } from './config/interface'
 import { FooterController } from './controller/footer'
 
-export default function Contact(prop:contactInterface){
+export default function Contact(prop:contactViewInterface){
     const APP_NAME = 'johedotcom'
     const CONTACT_ME_PAGE = 'contact me'
     const MY_BLOG_PAGE = 'my blog'
