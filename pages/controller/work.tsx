@@ -20,6 +20,7 @@ export class WorkController {
                 title: snap.data().title,
                 description: snap.data().description,
                 picture: imageSrc,
+                tag:snap.data().tag,
                 time: new Intl.DateTimeFormat('en-US', { day: 'numeric', month: 'long', year: 'numeric' }).format(snap.data().time.toDate())
             };
             workData.push(data);

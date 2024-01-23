@@ -13,6 +13,7 @@ export class BlogController {
                 id:item.id,
                 title:item.data().title,
                 description:item.data().description,
+                tag:item.data().tag,
                 time: new Intl.DateTimeFormat('en-US', { day: 'numeric', month: 'long', year: 'numeric' }).format(item.data().time.toDate())
             }
             blogData.push(data)

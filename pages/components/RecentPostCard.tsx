@@ -10,9 +10,7 @@ export default function RecentPostCard(prop:blogInterface){
                     <div className={Recentpost.recentPostCardDateItem}>
                         |
                     </div>
-                    <div className={Recentpost.recentPostCardDateItem}>
-                        code, design
-                    </div>
+                    <div className={Recentpost.recentPostCardDateItem}>{prop.tag}</div>
                 </div>
 
                 <div className={Recentpost.recentPostCardDesc}>{prop.description}</div>

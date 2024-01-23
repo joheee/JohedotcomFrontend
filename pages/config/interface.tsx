@@ -17,14 +17,16 @@ export interface workInterface {
   title:string,
   description:string,
   picture:string,
-  time:string
+  time:string,
+  tag:string
 }
 
 export interface blogInterface {
   id:string,
   title:string,
   description:string,
-  time:string
+  time:string,
+  tag:string
 }
 
 export interface homeViewInterface {
