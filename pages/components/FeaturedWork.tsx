@@ -1,26 +1,22 @@
 import feature from '../../styles/FeaturedWork.module.scss'
+import { workViewInterface } from '../config/interface'
 import FeaturedWorkCard from './FeaturedWorkCard'
 
-interface FeaturedWorkInterface {
-    title:string
-}
+export default function FeaturedWork(prop:workViewInterface){
 
-export default function FeaturedWork({title}:FeaturedWorkInterface){
+    if(prop.work === undefined) return <div className=""></div>
+
     return  <div className={feature.featuredWorkContainer}>
                 <div className={feature.featureWorkTitle}>
-                    {title}
+                    {prop.title}
                 </div>
                 
                 <div className={feature.featureWorkCardContainer}>
-                    <FeaturedWorkCard/>
-                    <FeaturedWorkCard/>
-                    <FeaturedWorkCard/>
-                    <FeaturedWorkCard/>
-                    <FeaturedWorkCard/>
-                    <FeaturedWorkCard/>
-                    <FeaturedWorkCard/>
-                    <FeaturedWorkCard/>
-                    <FeaturedWorkCard/>
+                    {
+                        prop.work.map((item, i) => (
+                            <FeaturedWorkCard {...item} key={i}/>
+                        ))
+                    }
                 </div>
             </div>
 }

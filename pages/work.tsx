@@ -3,10 +3,11 @@ import Head from "next/head";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import FeaturedWork from './components/FeaturedWork';
-import { workInterface } from './config/interface';
+import { workViewInterface } from './config/interface';
 import { FooterController } from './controller/footer';
+import { WorkController } from './controller/work';
 
-export default function Work(prop:workInterface){
+export default function Work(prop:workViewInterface){
     const APP_NAME = 'johedotcom'
     const CONTACT_ME_PAGE = 'contact me'
     const MY_BLOG_PAGE = 'my blog'
@@ -21,8 +22,8 @@ export default function Work(prop:workInterface){
             
             <div className={workPage.navbarHeight}></div>
             
-            <FeaturedWork title={`My Work`}/>
-            <Footer footers={prop.footer}/>
+            <FeaturedWork work={prop.work} title={`My Work`}/>
+            <Footer footers={prop.footer!}/>
         </div>
     )
 } 
@@ -30,8 +31,10 @@ export default function Work(prop:workInterface){
 export async function getServerSideProps() {
 
     const footerData = await FooterController.GetFooter()
+    const workData = await WorkController.GetWorkByDate()
 
     return {props:{
-        footer:footerData
+        footer:footerData,
+        work:workData
     }}
 }

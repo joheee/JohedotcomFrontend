@@ -16,17 +16,17 @@ export default function Footer({footers}:footerViewInterface){
                     {
                         footers.map((item,i) => {
                             if(item.media === 'github') return (
-                                <Link href={item.username}>
+                                <Link key={i} href={item.username}>
                                     <FontAwesomeIcon icon={faGithub} size='lg' className={footer.navbarButton}/>
                                 </Link>
                             )
                             if(item.media === 'instagram') return (
-                                <Link href={item.username}>
+                                <Link key={i} href={item.username}>
                                     <FontAwesomeIcon icon={faInstagram} size='lg' className={footer.navbarButton}/>
                                 </Link>
                             )
                             if(item.media === 'linkedin') return (
-                                <Link href={item.username}>
+                                <Link key={i} href={item.username}>
                                     <FontAwesomeIcon icon={faLinkedin} size='lg' className={footer.navbarButton}/>
                                 </Link>
                             )
@@ -34,9 +34,9 @@ export default function Footer({footers}:footerViewInterface){
                     }
                 </div>
                 {
-                    footers.map(item => {
+                    footers.map((item,i) => {
                         if(item.media === 'title') return (
-                            <div className={footer.footerCopyrightText}>{item.username}</div>
+                            <div  key={i} className={footer.footerCopyrightText}>{item.username}</div>
                         )
                     })
                 }

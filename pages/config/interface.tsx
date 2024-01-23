@@ -1,3 +1,5 @@
+import { Timestamp } from "firebase/firestore/lite"
+
 export interface profileInterface {
   title:string,
   subtitle:string,
@@ -10,9 +12,18 @@ export interface footerInterface {
   username:string,
 }
 
+export interface workInterface {
+  id:string,
+  title:string,
+  description:string,
+  picture:string,
+  time:string
+}
+
 export interface homeInterface {
   profile:profileInterface,
-  footer:footerInterface[]
+  footer:footerInterface[],
+  work:workInterface[]
 }
 
 export interface blogInterface {
@@ -23,9 +34,12 @@ export interface contactInterface {
   footer:footerInterface[]
 }
 
-export interface workInterface {
-  footer:footerInterface[]
+export interface workViewInterface {
+  title?:string
+  work:workInterface[]
+  footer?:footerInterface[]
 }
+
 
 export default function Page() {
   return <div className=""></div>

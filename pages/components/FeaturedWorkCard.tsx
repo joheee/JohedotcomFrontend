@@ -1,19 +1,20 @@
 import Image from 'next/image'
 import FeatureCard from '../../styles/FeaturedWorkCard.module.scss'
+import { workInterface } from '../config/interface'
 
-export default function FeaturedWorkCard(){
+export default function FeaturedWorkCard(prop:workInterface){
     return  <div className={FeatureCard.featuredWorkCard}>
-                <Image src='/web dev.webp' width='250' height='180' alt=''/>
+                <Image src={prop.picture} width='250' height='180' alt=''/>
 
                 <div className={FeatureCard.featureWorkTextContainer}>
                     <div className={FeatureCard.featureWorkTextYearContainer}>
                         <div className={FeatureCard.featureWorkTextTitle}>
-                            this is work title
+                            {prop.title}
                         </div>
 
                         <div className={FeatureCard.featureWorkTextYearTitleContainer}>
                             <div className={FeatureCard.featureWorkTextYearTitleItem}>
-                                2022
+                                {prop.time}
                             </div>
                             <div className={FeatureCard.featureWorkTextYearTitleItem}>
                                 code
@@ -21,9 +22,7 @@ export default function FeaturedWorkCard(){
                         </div>
                     </div>
  
-                    <div className={FeatureCard.featureWorkTextDescription}>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod placeat facere repudiandae nobis earum delectus provident itaque maiores quam? Laborum alias adipisci omnis tempore, totam nihil fugit neque quis pariatur?
-                    </div>
+                    <div className={FeatureCard.featureWorkTextDescription}>{prop.description}</div>
                 </div>
             </div>
 }
