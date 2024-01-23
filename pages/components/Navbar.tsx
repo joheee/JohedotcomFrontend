@@ -31,9 +31,6 @@ export default function Navbar(){
                     <Link href='/blog' className={navbar.navbarButton}>
                         blog
                     </Link>
-                    <Link href='/contact' className={navbar.navbarButton}>
-                        contact
-                    </Link>
             </div>
             <button className={`${navbar.navbarButton} ${navbar.navbarInnerContainerMobile}`} onClick={()=>setIsMobile(!isMobile)}>
                 <FontAwesomeIcon icon={faBars} />

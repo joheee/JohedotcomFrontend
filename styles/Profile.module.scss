@@ -2,6 +2,8 @@
 
 .homeContainer {
     height: 100vh;
+    background-color: $primaryColor;
+    color: $secondaryColor;
     
     .homeSelfImageContainer{
         min-width: clamp(100px, 5vw, 243px);

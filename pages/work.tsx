@@ -13,7 +13,7 @@ export default function Work(prop:workViewInterface){
     const MY_BLOG_PAGE = 'my blog'
     const MY_WORK_PAGE = 'my work'
     return  (
-        <div>
+        <div className={workPage.workPageContainer}>
             <Head>
                 <title>{APP_NAME} | {MY_WORK_PAGE}</title>
             </Head>

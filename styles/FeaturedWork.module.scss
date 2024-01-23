@@ -6,6 +6,8 @@
     align-items: center;
     padding: 1.875em;
     gap: 1em;
+    background-color: $primaryColor;
+    color: $secondaryColor;
 
     .featureWorkTitle {
         font-weight: 200;

@@ -7,19 +7,23 @@
     align-items: center;
     justify-content: center;
     gap: 1.625em;
+    background-color: $primaryColor;
+    color: $secondaryColor;
     
     .footerComponentContainer {
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 1em;
-
+        overflow: hidden;
+        
         .navbarButton{
             width: clamp(0px, 11vw, 2em);
             height: fit-content;
         }
     }
     .footerCopyrightText{
+        overflow: hidden;
         text-align: center;
         font-size: clamp(1px, 5vw, 1em);
     }

@@ -1,6 +1,12 @@
 @import 'imports';
 
-.navbarHeight{
-    width: 100vw;
-    height: 120px;
+.workPageContainer {
+    background-color: $primaryColor;
+    color: $secondaryColor;
+    height: 100vh;
+
+    .navbarHeight{
+        width: 100vw;
+        height: 120px;
+    }
 }

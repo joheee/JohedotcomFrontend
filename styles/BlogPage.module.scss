@@ -1,5 +1,11 @@
 @import 'imports';
 
+.blogPageContainer {
+    background-color: $primaryColor;
+    color: $secondaryColor;
+    height: 100vh;
+}
+
 .navbarHeight {
     width: 100vw;
     height: 120px;

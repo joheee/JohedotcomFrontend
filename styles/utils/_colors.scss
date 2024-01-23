@@ -15,6 +15,7 @@ $errorBackgroundColor:#ffe0e0;
 $errorBorderColor:#a33a3a;
 
 .navbarButton {
+    color: $secondaryColor;
     cursor: pointer;
     user-select: none;
     &:hover {

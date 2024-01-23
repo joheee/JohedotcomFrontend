@@ -31,10 +31,6 @@ export default function NavbarMobile ({isMobile,setIsMobile}:NavbarMobileInterfa
                     <FontAwesomeIcon className={navbar.navbarIconSetup} size='lg' icon={faBlog}/>
                     blog
                 </Link>
-                <Link href='/contact' className={navbar.navbarButton} onClick={()=>setIsMobile(!isMobile)}>
-                    <FontAwesomeIcon className={navbar.navbarIconSetup} size='lg' icon={faContactBook}/>
-                    contact
-                </Link>
             </div>
         </div>
     )

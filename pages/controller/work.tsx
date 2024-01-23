@@ -26,7 +26,7 @@ export class WorkController {
             workData.push(data)
         }
     
-        return []
+        return workData
     }
 
 }

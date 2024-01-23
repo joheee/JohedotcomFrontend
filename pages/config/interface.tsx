@@ -41,9 +41,6 @@ export interface blogViewInterface {
   blog:blogInterface[]
 }
 
-export interface contactViewInterface {
-  footer:footerInterface[]
-}
 
 export interface workViewInterface {
   title?:string

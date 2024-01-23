@@ -16,7 +16,7 @@ export default function Blog(prop:blogViewInterface) {
     if(prop.blog === undefined) return <div className=""></div>
 
     return (
-        <div>
+        <div className={blogPage.blogPageContainer}>
             <Head>
                 <title>{APP_NAME} | {MY_BLOG_PAGE}</title>
             </Head>
