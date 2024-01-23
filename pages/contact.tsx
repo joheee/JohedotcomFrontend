@@ -2,9 +2,8 @@ import contactPage from '../styles/ContactPage.module.scss'
 import Head from 'next/head'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
-import { collection, getDocs, query } from 'firebase/firestore/lite'
-import { db } from './config/firebase'
-import { contactInterface, footerInterface } from './config/interface'
+import { contactInterface } from './config/interface'
+import { FooterController } from './controller/footer'
 
 export default function Contact(prop:contactInterface){
     const APP_NAME = 'johedotcom'
@@ -62,16 +61,8 @@ export default function Contact(prop:contactInterface){
 }
 
 export async function getServerSideProps() {
-    // PART OF FOOTER
-    const docFooterCol = query(collection(db, 'footer'))
-    let footerSnapshot = await getDocs(docFooterCol)
-    let footerData:footerInterface[] = []
-    footerSnapshot.forEach(snap => {
-        footerData.push({
-        media:snap.id,
-        username:snap.data().username
-        })
-    })
+
+    const footerData = await FooterController.GetFooter()
 
     return {props:{
         footer:footerData

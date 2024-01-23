@@ -14,7 +14,7 @@ export default function Footer({footers}:footerViewInterface){
     return  <div className={footer.footerContainer}>
                 <div className={footer.footerComponentContainer}>
                     {
-                        footers.map(item => {
+                        footers.map((item,i) => {
                             if(item.media === 'github') return (
                                 <Link href={item.username}>
                                     <FontAwesomeIcon icon={faGithub} size='lg' className={footer.navbarButton}/>

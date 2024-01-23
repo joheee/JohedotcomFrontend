@@ -15,8 +15,6 @@ const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 export const storage = getStorage(app)
 
-export default function FirebaseView() {
-  return(
-    <div className=""></div>
-  )
+export default function Page() {
+  return <div className=""></div>
 }

@@ -1,13 +1,12 @@
 import Head from 'next/head'
-import { collection, doc, getDoc, getDocs, query } from 'firebase/firestore/lite'
-import { footerInterface, homeInterface, profileInterface } from './config/interface'
-import { getDownloadURL, ref } from 'firebase/storage'
 import Navbar from './components/Navbar'
 import Recentpost from './components/Recentpost'
 import FeaturedWork from './components/FeaturedWork'
-import Footer from './components/Footer'
 import Profile from './components/Profile'
-import { db, storage } from './config/firebase'
+import { homeInterface } from './config/interface'
+import Footer from './components/Footer'
+import { ProfileController } from './controller/profile'
+import { FooterController } from './controller/footer'
 
 export default function Home(prop:homeInterface) {
 
@@ -32,22 +31,8 @@ export default function Home(prop:homeInterface) {
 
 export async function getServerSideProps() {
   
-  // PART OF PROFILE 
-  const dofProfileRef = doc(db, 'profile', 'johe')
-  const profileData = (await getDoc(dofProfileRef)).data() as profileInterface
-  const imageRef = ref(storage, `profile/${profileData.picture}`)
-  profileData.picture = await getDownloadURL(imageRef)
-  
-  // PART OF FOOTER
-  const docFooterCol = query(collection(db, 'footer'))
-  let footerSnapshot = await getDocs(docFooterCol)
-  let footerData:footerInterface[] = []
-  footerSnapshot.forEach(snap => {
-    footerData.push({
-      media:snap.id,
-      username:snap.data().username
-    })
-  })
+  const profileData = await ProfileController.GetProfile()
+  const footerData = await FooterController.GetFooter()
 
   return {props:{
     profile:profileData,

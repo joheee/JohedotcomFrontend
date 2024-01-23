@@ -27,8 +27,6 @@ export interface workInterface {
   footer:footerInterface[]
 }
 
-export default function InterfaceView() {
-  return (
-    <div className=""></div>
-  )
+export default function Page() {
+  return <div className=""></div>
 }
