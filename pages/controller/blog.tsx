@@ -19,7 +19,7 @@ export class BlogController {
             blogData.push(data)
         })
 
-        return blogData
+        return []
     }
 }
 

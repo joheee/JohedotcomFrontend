@@ -9,11 +9,11 @@ export class WorkController {
         const docWorkCol = query(collection(db, 'work'))
         const workSnapshot = await getDocs(docWorkCol)
     
-        const workData:workInterface[] = [];
+        const workData:workInterface[] = []
     
         for (const snap of workSnapshot.docs) {
-            const imageRef = ref(storage, `work/${snap.data().picture}`);
-            const imageSrc = await getDownloadURL(imageRef);
+            const imageRef = ref(storage, `work/${snap.data().picture}`)
+            const imageSrc = await getDownloadURL(imageRef)
             
             const data: workInterface = {
                 id: snap.id,
@@ -22,11 +22,11 @@ export class WorkController {
                 picture: imageSrc,
                 tag:snap.data().tag,
                 time: new Intl.DateTimeFormat('en-US', { day: 'numeric', month: 'long', year: 'numeric' }).format(snap.data().time.toDate())
-            };
-            workData.push(data);
+            }
+            workData.push(data)
         }
     
-        return workData;
+        return []
     }
 
 }
